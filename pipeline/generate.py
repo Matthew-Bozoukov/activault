@@ -25,13 +25,17 @@ import logging
 from uuid import uuid4
 
 logger = logging.getLogger(__name__)
-
-def generate_activations(
-        
-
-
-        
-)
+import torch
+def generate_activations_for_vision_models(
+    model: GoogLeNet,
+    loader: DataLoader,
+    config: Config,
+    uploaders: Dict[str, HookUploader] = None,
+    hook_activations: Dict[str, Dict[str, torch.Tensor]] = None
+):
+    s3_client = create_s3_client()
+    existing_config = Config.load_from_s3(s3_client, config.data_config["bucket_name"])
+    
 def generate_activations(
     model: AutoModelForCausalLM,
     loader: DataLoader,
