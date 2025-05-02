@@ -26,7 +26,12 @@ from uuid import uuid4
 
 logger = logging.getLogger(__name__)
 
+def generate_activations(
+        
 
+
+        
+)
 def generate_activations(
     model: AutoModelForCausalLM,
     loader: DataLoader,
